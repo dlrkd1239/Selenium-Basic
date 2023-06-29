@@ -26,11 +26,14 @@ time.sleep(1)
 driver.find_element(By.XPATH, '//*[@id="u-1238065328"]/main/div[1]/div/div/div[3]/button[1]').click()
 time.sleep(10)
 
+nope = None
 buttons = driver.find_elements(By.TAG_NAME, 'button')
 for item in buttons:
     if item.text == "NOPE":
         nope = item
 
 while True:
-    nope.send_keys(Keys.ENTER)
-    time.sleep(3)
+    try:
+        nope.send_keys(Keys.ENTER)
+    finally:
+        time.sleep(3)
